@@ -19,10 +19,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/howtouse', function () {
+    return view("login.howtouse");
+})->name("howtouse");
+
 Route::get('/main', function () {
     return view("main");
 })->name("main");
 
+Route::get('/login', function () {
+    return view("auth.login");
+})->name("login");
+
+Route::get('/signup', function () {
+    return view("auth.register");
+})->name("signup");
 
 Route::get('/about', [AboutController::class, 'index'])
     ->name('about.index');
