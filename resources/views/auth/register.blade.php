@@ -69,7 +69,7 @@
     <!-- Navbar (sit on top) -->
     <div class="w3-top">
         <div class="w3-bar mint-b w3-wide w3-padding w3-card">
-            <a href="" class="w3-bar-item w3-button"><b>KU</b> Events</a>
+            <a href="{{ route('main-public') }}" class="w3-bar-item w3-button"><b>KU</b> Events</a>
             <!-- Float links to the right. Hide them on small screens -->
             <div class="w3-right w3-hide-small">
                 <a href="{{ route('how-to-use') }}" class="w3-bar-item w3-button">How To Use</a>
@@ -79,20 +79,22 @@
         </div>
     </div>
 
+    {{-- >>> Implement signup --}}
     <div align="center">
         <h1> - </h1>
         <h1>Create Your Account</h1>
-        <form action="main.html">
+        <form action="{{ route('main-public') }}">
             <input type="username" value="username">
             <input type="password" value="Password">
         </form>
-        <a>
+        <a href="{{ route('main-public') }}"> {{-- naiithink inserted (idk) --}}
             <p><button class="w3-button w3-light-grey w3-block" style="width:200px">SUBMIT</button></p>
         </a>
-        <a href="login.html">
+        <a href="{{ route('login') }}>
             <p><button class="w3-button w3-light-grey w3-block" style="width:200px">Log In</button></p>
         </a>
     </div>
+    {{-- <<< Implement signup --}}
 
     <body>
 

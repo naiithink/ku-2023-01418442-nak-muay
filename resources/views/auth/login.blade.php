@@ -64,7 +64,7 @@
     <!-- Navbar (sit on top) -->
     <div class="w3-top">
         <div class="w3-bar mint-b w3-wide w3-padding w3-card">
-            <a href="#home" class="w3-bar-item w3-button"><b>KU</b> Events</a>
+            <a href="{{ route('main-public') }}" class="w3-bar-item w3-button"><b>KU</b> Events</a>
             <!-- Float links to the right. Hide them on small screens -->
             <div class="w3-right w3-hide-small">
                 <a href="{{ route('how-to-use') }}" class="w3-bar-item w3-button">How To Use</a>
@@ -79,13 +79,16 @@
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS57cxS-wC2GujcEE-N_c5epmqhydszCHIk1Q&usqp=CAU"
             style="width: 200px;height: 200px;">
         <h3>Please Log In</h3>
-        <form action="main.html">
+
+        {{-- >>> Implement login --}}
+        <form action="{{ route('main-public') }}">
             <input type="username" value="username">
             <input type="password" value="Password">
         </form>
-        <a href="main.html">
+        <a href="{{ route('main-public') }}">
             <p><button class="w3-button w3-light-grey w3-block" style="width:200px">Log In</button></p>
         </a>
+        {{-- <<< Implement login --}}
     </div>
 
     <body>

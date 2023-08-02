@@ -17,9 +17,9 @@
             <a href="main.not.login.html" class="w3-bar-item w3-button"><b>KU</b> Events</a>
             <!-- Float links to the right. Hide them on small screens -->
             <div class="w3-right w3-hide-small">
-                <a href="login/howtouse.html" class="w3-bar-item w3-button">How To Use</a>
-                <a href="login/login.html" class="w3-bar-item w3-button">Log In</a>
-                <a href="login/signup.html" class="w3-bar-item w3-button">Sign Up</a>
+                <a href="{{ route('how-to-use') }}" class="w3-bar-item w3-button">How To Use</a>
+                <a href="{{ route('login') }}" class="w3-bar-item w3-button">Log In</a>
+                <a href="{{ route('signup') }}" class="w3-bar-item w3-button">Sign Up</a>
             </div>
         </div>
     </div>
