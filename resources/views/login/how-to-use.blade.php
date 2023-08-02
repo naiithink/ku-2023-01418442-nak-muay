@@ -28,9 +28,12 @@
         <h1> - </h1>
         <h1> How To Use</h1>
         <h3> info... </h3>
-        <a href="login.html">
+
+        {{--
+        <a href="{{ route('login') }}">
             <p><button class="w3-button w3-light-grey w3-block" style="width:200px">Back</button></p>
         </a>
+        --}}
     </div>
 
     <body>

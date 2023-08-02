@@ -90,7 +90,7 @@
         <a href="{{ route('main-public') }}"> {{-- naiithink inserted (idk) --}}
             <p><button class="w3-button w3-light-grey w3-block" style="width:200px">SUBMIT</button></p>
         </a>
-        <a href="{{ route('login') }}>
+        <a href="{{ route('login') }}">
             <p><button class="w3-button w3-light-grey w3-block" style="width:200px">Log In</button></p>
         </a>
     </div>
