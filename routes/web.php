@@ -15,17 +15,24 @@ use App\Http\Controllers\AboutController;
 |
 */
 
+// main
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('main');
+})->name('main');
 
-Route::get('/howtouse', function () {
-    return view("login.howtouse");
-})->name("howtouse");
+// main.not.login
+Route::get('/main-public', function () {
+    return view('main-public');
+})->name('main-public');
 
-Route::get('/main', function () {
-    return view("main");
-})->name("main");
+// login/main
+Route::get('/main-logged-in', function () {
+    return view('login.main');
+})->name("main-logged-in");
+
+Route::get('/how-to-use', function () {
+    return view("login.how-to-use");
+})->name("how-to-use");
 
 Route::get('/login', function () {
     return view("auth.login");
@@ -35,8 +42,39 @@ Route::get('/signup', function () {
     return view("auth.register");
 })->name("signup");
 
-Route::get('/about', [AboutController::class, 'index'])
-    ->name('about.index');
+Route::get('/admin-create-staff', function () {
+    return view("admin.admin-create-staff");
+})->name("admin-create-staff");
+
+Route::get('/admin-profile', function () {
+    return view("admin.admin-profile");
+})->name("admin-profile");
+
+Route::get('/staff-requests', function () {
+    return view("staff.staff-requests");
+})->name("staff-requests");
+
+Route::get('/student-certificates', function () {
+    return view("student.student-certificates");
+})->name("student-certificates");
+
+Route::get('/student-create-event', function () {
+    return view("student.student-create-event");
+})->name("student-create-event");
+
+Route::get('/student-events', function () {
+    return view("student.student-events");
+})->name("student-events");
+
+Route::get('/student-profile', function () {
+    return view("student.student-profile");
+})->name("student-profile");
+
+
+
+
+
+// IDK
 
 Route::get('/dashboard', function () {
     return view('dashboard');
