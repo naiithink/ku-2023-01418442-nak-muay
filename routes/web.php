@@ -42,6 +42,10 @@ Route::get('/signup', function () {
     return view("auth.register");
 })->name("signup");
 
+Route::get('/forgot-password', function () {
+    return view("auth.forgot-password");
+})->name("forgot-password");
+
 Route::get('/admin-create-staff', function () {
     return view("admin.admin-create-staff");
 })->name("admin-create-staff");
