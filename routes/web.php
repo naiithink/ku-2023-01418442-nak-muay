@@ -45,7 +45,7 @@ Route::get('/signup', function () {
     return view("auth.register");
 })->name("signup");
 
-// forgot-password
+// forgot-password bug?
 Route::get('/forgot-password', function () {
     return view("auth.forgot-password");
 })->name("forgot-password");
