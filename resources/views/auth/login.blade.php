@@ -151,7 +151,7 @@
             <button class="bg-indigo-600 w-full py-2 font-bold duration-300 hover:bg-indigo-400">Sign in</button>
         </a>
 
-        <a href="{{route('forgot-password')}}" class="transform text-center font-semi-bold text-gray-500 duration-300 hover:text-gray-300">FORGOT PASSWORD?</a>
+        <a href="#" class="transform text-center font-semi-bold text-gray-500 duration-300 hover:text-gray-300">FORGOT PASSWORD?</a>
 
         <p class="text-center text-lg">
             No account?

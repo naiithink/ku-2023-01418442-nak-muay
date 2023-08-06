@@ -15,7 +15,7 @@ use App\Http\Controllers\AboutController;
 |
 */
 
-// main
+// main.not.login
 Route::get('/', function () {
     return view('main-public');
 })->name('main-public');
@@ -30,18 +30,22 @@ Route::get('/main-logged-in', function () {
     return view('login.main');
 })->name("main-logged-in");
 
+// hot-to-use
 Route::get('/how-to-use', function () {
     return view("login.how-to-use");
 })->name("how-to-use");
 
+// login
 Route::get('/login', function () {
     return view("auth.login");
 })->name("login");
 
+// signup
 Route::get('/signup', function () {
     return view("auth.register");
 })->name("signup");
 
+// forgot-password
 Route::get('/forgot-password', function () {
     return view("auth.forgot-password");
 })->name("forgot-password");

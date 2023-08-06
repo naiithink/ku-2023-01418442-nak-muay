@@ -14,7 +14,7 @@
     <!-- Navbar (sit on top) -->
     <div class="w3-top">
         <div class="w3-bar mint-b w3-wide w3-padding w3-card">
-            <a href="{{ route('main') }}" class="w3-bar-item w3-button"><b>KU</b> Events</a>
+            <a href="{{ route('main-logged-in') }}" class="w3-bar-item w3-button"><b>KU</b> Events</a>
             <!-- Float links to the right. Hide them on small screens -->
             <div class="w3-right w3-hide-small">
                 <a href="{{ route('staff-requests') }}" class="w3-bar-item w3-button">Request(Staff)</a>
