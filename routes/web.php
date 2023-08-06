@@ -17,13 +17,13 @@ use App\Http\Controllers\AboutController;
 
 // main
 Route::get('/', function () {
-    return view('main');
-})->name('main');
-
-// main.not.login
-Route::get('/main-public', function () {
     return view('main-public');
 })->name('main-public');
+
+//// main.not.login
+//Route::get('/main-public', function () {
+//    return view('main-public');
+//})->name('main-public');
 
 // login/main
 Route::get('/main-logged-in', function () {
