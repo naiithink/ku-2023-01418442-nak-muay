@@ -46,9 +46,9 @@ Route::get('/signup', function () {
 })->name("signup");
 
 // forgot-password bug?
-Route::get('/forgot-password', function () {
+Route::get('/forgot-password2', function () {
     return view("auth.forgot-password");
-})->name("forgot-password");
+})->name("forgot-password2");
 
 Route::get('/admin-create-staff', function () {
     return view("admin.admin-create-staff");
