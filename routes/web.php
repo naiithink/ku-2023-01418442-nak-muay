@@ -78,6 +78,12 @@ Route::get('/student-profile', function () {
     return view("student.student-profile");
 })->name("student-profile");
 
+Route::get('/view-check', function () {
+    return view("view-check");
+})->name("student-check");
+
+
+
 
 
 

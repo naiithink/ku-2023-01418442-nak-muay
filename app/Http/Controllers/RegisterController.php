@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Register;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class RegisterController extends Controller
 {
@@ -11,7 +13,9 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        //
+        $registers = Register::get();
+        return view('main-public', ['registers'=> $registers
+        ]);
     }
 
     /**
@@ -19,7 +23,9 @@ class RegisterController extends Controller
      */
     public function create()
     {
-        //
+//        Gate::authorize('create', Register::class);
+
+        return view('auth.register');
     }
 
     /**
@@ -27,15 +33,28 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        \Illuminate\Support\Facades\Gate::authorize('create', Register::class);
+
+        $request->validate([
+            'name' => ['required', 'string', 'min:3' , 'max:255']
+        ]);
+
+        $registers_name = $request->get('name');
+        if ($registers_name == null) {
+            return redirect()->back();
+        }
+
+        $artist = new Artist();
+        $artist->name = $registers_name;
+        $artist->save();
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Register $register)
     {
-        //
+        return view('view-check', ['register' => $register ]);
     }
 
     /**
