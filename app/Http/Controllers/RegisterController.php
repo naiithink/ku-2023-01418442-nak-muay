@@ -39,14 +39,14 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'min:3' , 'max:255']
         ]);
 
-        $registers_name = $request->get('name');
-        if ($registers_name == null) {
+        $register_name = $request->get('name');
+        if ($register_name == null) {
             return redirect()->back();
         }
 
-        $artist = new Artist();
-        $artist->name = $registers_name;
-        $artist->save();
+        $register = new Register();
+        $register->name = $register_name;
+        $register->save();
     }
 
     /**
@@ -54,7 +54,7 @@ class RegisterController extends Controller
      */
     public function show(Register $register)
     {
-        return view('view-check', ['register' => $register ]);
+        return view('view-check', ['registers' => $register ]);
     }
 
     /**

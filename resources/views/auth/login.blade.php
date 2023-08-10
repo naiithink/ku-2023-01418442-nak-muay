@@ -52,80 +52,55 @@
 
 
 
-
-
-
-
-{{--    <div class="w3-yellow-p"></div>--}}
-
-{{--    <!-- Navbar (sit on top) -->--}}
-{{--    <div class="w3-top">--}}
-{{--        <div class="w3-bar mint-b w3-wide w3-padding w3-card">--}}
-{{--            <a href="{{ route('main-public') }}" class="w3-bar-item w3-button"><b>KU</b> Events</a>--}}
-{{--            <!-- Float links to the right. Hide them on small screens -->--}}
-{{--            <div class="w3-right w3-hide-small">--}}
-{{--                <a href="{{ route('how-to-use') }}" class="w3-bar-item w3-button">How To Use</a>--}}
-{{--                <a href="{{ route('login') }}" class="w3-bar-item w3-button">Log In</a>--}}
-{{--                <a href="{{ route('signup') }}" class="w3-bar-item w3-button">Sign Up</a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
-{{--    <div align="center">--}}
-{{--        <h1>-</h1>--}}
-{{--        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS57cxS-wC2GujcEE-N_c5epmqhydszCHIk1Q&usqp=CAU"--}}
-{{--            style="width: 200px;height: 200px;">--}}
-{{--        <h3>Please Log In</h3>--}}
-
-{{--         >>> Implement login --}}
-{{--        <form action="{{ route('main-public') }}">--}}
-{{--            <input type="username" value="username">--}}
-{{--            <input type="password" value="Password">--}}
-{{--        </form>--}}
-{{--        <a href="{{ route('main-public') }}">--}}
-{{--            <p><button class="w3-button w3-light-grey w3-block" style="width:200px">Log In</button></p>--}}
-{{--        </a>--}}
-{{--         <<< Implement login --}}
-{{--    </div>--}}
-
-
 @section('content')
 <!-- page -->
     <main class="flex min-h-screen  items-center justify-center bg-gray-900 text-white">
         <!-- component -->
-        <section class="flex w-[30rem] flex-col space-y-10">
+        <form method="POST" action="{{ route('login') }} "
+        class="flex w-[30rem] flex-col space-y-10">
+            @csrf
+
             <div class="text-center text-4xl font-medium">Sign In</div>
 
-            <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500">
-                <input
-                    type="text"
-                    id="email"
-                    placeholder="Enter Your Email"
-                    class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none required"
-                />
-            </div>
+            <!-- email -->
+                <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500">
+                    <input
+                        type="text"
+                        id="email"
+                        placeholder="Enter Your Email"
+                        required
+                        autocomplete="username"
+                        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none required"
+                    />
+                </div>
 
-            <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500">
-                <input
-                    type="password"
-                    placeholder="Password"
-                    class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
-                />
-            </div>
-            <a href="{{route('main-logged-in')}}">
-                <button class="bg-indigo-600 w-full py-2 font-bold duration-300 hover:bg-indigo-400">Sign in</button>
-            </a>
+                <!-- password -->
+                <div class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500">
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Password"
+                        required
+                        autocomplete="current-password"
+                        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+                    />
+                </div>
 
-            <a href="{{route('forgot-password2')}}" class="transform text-center font-semi-bold text-gray-500 duration-300 hover:text-gray-300">FORGOT PASSWORD?</a>
+                <!-- button -->
+                <a href="{{route('main-logged-in')}}">
+                    <button class="bg-indigo-600 w-full py-2 font-bold duration-300 hover:bg-indigo-400">Sign in</button>
+                </a>
 
-            <p class="text-center text-lg">
-                No account?
-                <a
-                    href="{{route('signup')}}"
-                    class="font-medium text-indigo-500 underline-offset-4 hover:underline"
-                >Create One</a
-                >
-            </p>
-        </section>
+                <a href="{{route('forgot-password2')}}" class="transform text-center font-semi-bold text-gray-500 duration-300 hover:text-gray-300">FORGOT PASSWORD?</a>
+
+                <p class="text-center text-lg">
+                    No account?
+                    <a
+                        href="{{route('signup')}}"
+                        class="font-medium text-indigo-500 underline-offset-4 hover:underline"
+                    >Create One</a
+                    >
+                </p>
+        </form>
     </main>
 @endsection

@@ -9,7 +9,7 @@ use App\Http\Controllers\AboutController;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
+| Here is where you can registers web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
@@ -24,11 +24,6 @@ Route::get('/', function () {
 //Route::get('/main-public', function () {
 //    return view('main-public');
 //})->name('main-public');
-
-// login/main
-Route::get('/main-logged-in', function () {
-    return view('login.main');
-})->name("main-logged-in");
 
 // hot-to-use
 Route::get('/how-to-use', function () {

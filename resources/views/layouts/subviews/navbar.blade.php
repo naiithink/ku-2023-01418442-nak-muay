@@ -37,7 +37,7 @@
 
 <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-teal-200 dark:border-teal-300">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
-        <a href="{{route('main-logged-in')}}" class="flex items-center">
+        <a href="{{route('main-public')}}" class="flex items-center">
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">KU Events</span>
         </a>
         <div class="flex items-center md:order-2">
@@ -53,10 +53,10 @@
                 </div>
                 <ul class="py-2" aria-labelledby="user-menu-button">
                     <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+                        <a href="{{route('login')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign In</a>
                     </li>
                     <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+                        <a href="{{route('signup')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign Up</a>
                     </li>
                     <li>
                         <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
