@@ -35,12 +35,16 @@ Route::get('/login', function () {
     return view("auth.login");
 })->name("login");
 
-// signup
-Route::get('/signup', function () {
-    return view("auth.register");
-})->name("signup");
+// register
+Route::resource('/registers', \App\Http\Controllers\RegisterController::class);
 
-// forgot-password bug?
+Route::get('/register', function () {
+    return view("auth.register");
+})->name("register");
+
+
+
+// forgot-password
 Route::get('/forgot-password2', function () {
     return view("auth.forgot-password");
 })->name("forgot-password2");
@@ -76,6 +80,10 @@ Route::get('/student-profile', function () {
 Route::get('/view-check', function () {
     return view("view-check");
 })->name("student-check");
+
+Route::get('/create-event', function () {
+    return view("events.create");
+})->name("create-event");
 
 
 

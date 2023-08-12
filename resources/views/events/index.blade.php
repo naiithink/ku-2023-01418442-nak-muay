@@ -15,6 +15,10 @@
     <p class="text-teal-300 text-center text-4xl mt-10 mb-3">ALL Events</p>
     <div class="border-b-2 border-b-teal-300 w-full"></div>
 
+    <a>
+        <button class="p-5 border-red-400">hello</button>
+    </a>
+
     <div class="grid grid-cols-3 gap-20 ml-14 mt-10">
 
 

@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+
 <!-- Header -->
 <header>
   <img class="w3-image" src="https://wallpapers.com/images/featured/pub-sg3h2yg86plufux1.jpg" alt="Architecture" width="2000" height="800">

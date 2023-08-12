@@ -23,7 +23,7 @@ class RegisterController extends Controller
      */
     public function create()
     {
-//        Gate::authorize('create', Register::class);
+        Gate::authorize('create', Register::class);
 
         return view('auth.register');
     }
@@ -33,20 +33,22 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-//        \Illuminate\Support\Facades\Gate::authorize('create', Register::class);
+        \Illuminate\Support\Facades\Gate::authorize('create', Register::class);
 
-        $request->validate([
-            'name' => ['required', 'string', 'min:3' , 'max:255']
-        ]);
+//        $request->validate([
+//            'name' => ['required', 'string', 'min:3' , 'max:255']
+//        ]);
 
-        $register_name = $request->get('name');
-        if ($register_name == null) {
+        $register_email = $request->get('email');
+        if ($register_email == null) {
             return redirect()->back();
         }
 
         $register = new Register();
-        $register->name = $register_name;
+        $register->email = $register_email;
         $register->save();
+
+        return redirect()->route('main-public');
     }
 
     /**

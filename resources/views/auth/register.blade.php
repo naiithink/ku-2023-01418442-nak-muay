@@ -57,6 +57,7 @@
 
 @section('content')
 <!-- form -->
+<form>
     <div class="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
         <div class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:1000px">
             <div class="md:flex w-full">
@@ -71,7 +72,7 @@
                     </div>
 
 
-                    <form action="{{route('register') , ['register' => $register]}}" method="POST">
+                    <form action="{{route('registers.store')}}" method="POST">
                     @csrf
                     <!-- input -->
                         <div>
@@ -93,7 +94,7 @@
                                     <label for="email" class="text-xs font-semibold px-1">Email</label>
                                     <div class="flex">
                                         <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
-                                        <input type="email" id="email"  name="email" value="old('email')" required autofocus autocomplete="username"
+                                        <input type="email" id="email"  name="email"  required autofocus autocomplete="username"
                                                class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="JohnTissue@ku.th">
                                     </div>
                                 </div>
@@ -122,8 +123,6 @@
                             </div>
                         </div>
                     </form>
-
-
                 </div>
             </div>
         </div>
