@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('curreny')->default('THB')->comment('CurrencyEnum');
             $table->text('description');
             $table->datetime('date');
-            $table->string('status');
+            $table->string('status')->default('PENDING')->comment('EventStatusEnum');
             $table->integer('attendee_capacity');
             $table->text('disapproval_reasons');
         });

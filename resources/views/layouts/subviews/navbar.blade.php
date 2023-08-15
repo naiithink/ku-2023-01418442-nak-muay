@@ -35,6 +35,7 @@
 {{--        </div>--}}
 {{--    </nav>--}}
 
+
 <nav class=" font-mono bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-teal-200 dark:border-teal-300">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
         <a href="{{route('main-public')}}" class="flex items-center">
@@ -52,17 +53,18 @@
                 <!-- Dropdown menu -->
                 <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
                     <div class="px-4 py-3">
-    {{--                    <span class="block text-sm text-gray-900 dark:text-white">{{Auth::user->name()}}</span>--}}
-    {{--                    <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{Auth::user->gmail()}}</span>--}}
+                    <span class="block text-sm text-gray-900 dark:text-white text-center">{{Auth::user()->username}}</span>
+                    <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{Auth::user()->email}}</span>
                     </div>
                     <ul class="py-2" aria-labelledby="user-menu-button">
                         <li>
                             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profile</a>
                         </li>
                         <li>
-                            <form action="{{route('logout')}}" method="POST"></form>
-                            @csrf
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+                            <form action="{{route('logout')}}" method="POST">
+                                @csrf
+                                <button type="submit" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</button>
+                            </form>
                         </li>
                     </ul>
                 </div>

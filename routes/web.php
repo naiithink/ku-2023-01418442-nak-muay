@@ -36,12 +36,11 @@ Route::get('/login', function () {
 })->name("login");
 
 // register
-Route::resource('/registers', \App\Http\Controllers\RegisterController::class);
+// Route::resource('/registers', \App\Http\Controllers\RegisterController::class);
 
 Route::get('/register', function () {
     return view("auth.register");
 })->name("register");
-
 
 
 // forgot-password
@@ -49,6 +48,8 @@ Route::get('/forgot-password2', function () {
     return view("auth.forgot-password");
 })->name("forgot-password2");
 
+
+// admin
 Route::get('/admin-create-staff', function () {
     return view("admin.admin-create-staff");
 })->name("admin-create-staff");
@@ -57,6 +58,7 @@ Route::get('/admin-profile', function () {
     return view("admin.admin-profile");
 })->name("admin-profile");
 
+// staffs
 Route::get('/staff-requests', function () {
     return view("staff.staff-requests");
 })->name("staff-requests");
@@ -69,6 +71,8 @@ Route::get('/student-create-event', function () {
     return view("student.student-create-event");
 })->name("student-create-event");
 
+
+// users
 Route::get('/student-events', function () {
     return view("student.student-events");
 })->name("student-events");
@@ -81,10 +85,19 @@ Route::get('/view-check', function () {
     return view("view-check");
 })->name("student-check");
 
+
+// events
 Route::get('/create-event', function () {
     return view("events.create");
 })->name("create-event");
 
+Route::get('/event', function() {
+    return view("events.index");
+})->name("event-index");
+
+Route::get('/show-event', function(){
+    return view("events.show");
+})->name("show-event");
 
 
 

@@ -18,9 +18,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'role',
         'name',
+        'username',
         'email',
         'password',
+        'phone_number',
+        'contact_link',
     ];
 
     /**
@@ -43,6 +47,10 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+
+    public function isStudent() {
+        return $this->role === "STUDENT";
+    }
 
     public function isStaff() {
         return $this->role === "STAFF";
