@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('updated_at');
             $table->text('event_name');
             $table->double('fund');
-            $table->string('curreny')->default('THB')->comment('CurrencyEnum');
+            $table->string('currency')->default('THB')->comment('CurrencyEnum');
             $table->text('description');
             $table->datetime('date');
             $table->string('status')->default('PENDING')->comment('EventStatusEnum');

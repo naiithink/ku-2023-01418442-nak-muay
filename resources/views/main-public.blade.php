@@ -7,13 +7,13 @@
   <img class="w3-image" src="https://wallpapers.com/images/featured/pub-sg3h2yg86plufux1.jpg" alt="Architecture" width="2000" height="800">
   <div class="w3-display-middle w3-margin-top w3-center">
 
-      <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-green-600 from-red-400">KU Events</span> </h1>
-{{--      <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>KU</b></span> <span class="w3-hide-small w3-text-light-grey">Events</span></h1>--}}
+{{--      <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-green-600 from-red-400">KU Events</span> </h1>--}}
+      <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>KU</b></span> <span class="w3-hide-small w3-text-light-grey">Events</span></h1>
   </div>
 </header>
 
 <!-- Page content -->
-    <p class="text-teal-300 text-center text-4xl mt-10 mb-3">ALL Events</p>
+    <p class="text-teal-300 text-center text-4xl pt-8 mb-3">ALL Events</p>
     <div class="border-b-2 border-b-teal-300 w-full"></div>
 
     <div class="grid grid-cols-3 gap-20 ml-14 mt-10">
