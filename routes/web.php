@@ -77,13 +77,14 @@ Route::get('/student-events', function () {
     return view("student.student-events");
 })->name("student-events");
 
-Route::get('/student-profile', function () {
-    return view("student.student-profile");
-})->name("student-profile");
+Route::get('/certificate', function () {
+    return view("profile.user-certificates");
+})->name("certificates");
 
-Route::get('/view-check', function () {
-    return view("view-check");
-})->name("student-check");
+
+Route::get('/profile-show', function () {
+    return view("profile.show");
+})->name("profile");
 
 
 // events
