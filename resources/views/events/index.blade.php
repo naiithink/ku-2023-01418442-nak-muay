@@ -1,23 +1,50 @@
 @extends('layouts.main')
 
 @section('content')
+{{--<x-app-layout>--}}
+{{--    <x-slot name="header">--}}
+{{--        <h2 class="font-semibold text-xl text-gray-800 leading-tight">--}}
+{{--            {{ __('Dashboard') }}--}}
+{{--        </h2>--}}
+{{--    </x-slot>--}}
+
+{{--    <div class="py-12">--}}
+{{--        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">--}}
+{{--            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">--}}
+{{--                <div class="p-6 text-gray-900">--}}
+{{--                    {{ __("You're logged in!") }}--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</x-app-layout>--}}
+
+@section('content')
     <!-- Header -->
     <header>
         <img class="w3-image" src="https://wallpapers.com/images/featured/pub-sg3h2yg86plufux1.jpg" alt="Architecture" width="2000" height="800">
         <div class="w3-display-middle w3-margin-top w3-center">
 
-            <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-green-600 from-red-400">KU Events</span> </h1>
-            {{--      <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>KU</b></span> <span class="w3-hide-small w3-text-light-grey">Events</span></h1>--}}
+{{--            <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-green-600 from-red-400">KU Events</span> </h1>--}}
+                  <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>KU</b></span> <span class="w3-hide-small w3-text-light-grey">Events</span></h1>
         </div>
     </header>
 
     <!-- Page content -->
-    <p class="text-teal-300 text-center text-4xl mt-10 mb-3">ALL Events</p>
-    <div class="border-b-2 border-b-teal-300 w-full"></div>
+    <p class="text-teal-300 text-center text-4xl mt-8 mb-3 ">ALL Events</p>
+    <div class="border-b-2 border-b-teal-300 w-full mb-10"></div>
+{{--    <a href="create-event" class="flex justify-center items-end">--}}
+{{--        <button class="p-5 bg-red-600 text-white mt-6 ">Create Event</button>--}}
+{{--    </a>--}}
+    <div class="flex items-center justify-center">
+        <a href="{{route('create-event')}}" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-xl font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+          <span class="relative p-5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+              Create Events
+          </span>
+        </a>
+    </div>
 
-    <a>
-        <button class="p-5 border-red-400">hello</button>
-    </a>
+
 
     <div class="grid grid-cols-3 gap-20 ml-14 mt-10">
 
@@ -54,7 +81,7 @@
                 <a href="#">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Beach</h5>
                 </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Beach not Buzz.</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt accusantium vel ducimus aut eos dolorem nemo laborum inventore eius! Blanditiis dolore eum autem ipsa odit quibusdam nobis modi dolorum aspernatur.</p>
                 <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Read more
                     <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">

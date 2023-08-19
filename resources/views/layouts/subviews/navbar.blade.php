@@ -1,5 +1,5 @@
 
-{{--    <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-teal-200 dark:border-teal-300">--}}
+{{--    <nav class="bg-white dark:bg-gray-900 sticky w-full z-20 top-0 left-0 border-b border-teal-200 dark:border-teal-300">--}}
 {{--        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">--}}
 {{--            <a href="{{route('main-logged-in')}}" class="flex items-center">--}}
 {{--                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">KU Events</span>--}}
@@ -35,8 +35,8 @@
 {{--        </div>--}}
 {{--    </nav>--}}
 
-<header>
-    <nav class=" font-mono bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-teal-200 dark:border-teal-300">
+<header class="sticky top-0 left-0 z-20">
+    <nav class="font-mono bg-white dark:bg-gray-900 w-full border-b border-teal-200 dark:border-teal-300">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="{{route('main-public')}}" class="flex items-center">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">KU Events</span>
@@ -50,13 +50,25 @@
                         <img class=" bg-white w-14 h-14 rounded-full" src="{{asset('image/person.png')}}" alt="user photo">
                     </button>
 
-                    <!-- Dropdown menu -->
+                    {{-- Dropdown menu --}}
                     <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
                         <div class="px-4 py-3">
                         <span class="block text-sm text-gray-900 dark:text-white text-center">{{Auth::user()->username}}</span>
                         <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{Auth::user()->email}}</span>
                         </div>
+
+                        {{-- >>> Displays by roles --}}
                         <ul class="py-2" aria-labelledby="user-menu-button">
+                            @if(Auth::user()->role === "ADMIN")
+                                <li>
+                                    <a href="{{route('how-to-use')}}" class="block px-4 py-2 text-sm w-full text-center text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Create Staff</a>
+                                </li>
+                            @endif
+                            @if(Auth::user()->role === "STAFF")
+                                <li>
+                                    <a href="{{route('staff-requests')}}" class="block px-4 py-2 text-sm w-full text-center text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Requests</a>
+                                </li>
+                            @endif
                             <li>
                                 <a href="{{route('profile')}}" class="block px-4 py-2 text-sm w-full text-center text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profile</a>
                             </li>
@@ -67,6 +79,7 @@
                                 </form>
                             </li>
                         </ul>
+                        {{-- <<< Displays by roles --}}
                     </div>
                 </div>
 

@@ -16,6 +16,7 @@ class UserSeeder extends Seeder
         // Admin
         $user = new User();
         $user->role = "ADMIN";
+        $user->id = "1";
         $user->name = "John Doe";
         $user->username = "jdoe";
         $user->password = "password";
@@ -23,9 +24,32 @@ class UserSeeder extends Seeder
         $user->phone_number = "0000000000";
         $user->save();
 
-        // Staff
+        // Staff #1
         $user = new User();
         $user->role = "STAFF";
+        $user->id = "2";
+        $user->name = "Only Fans";
+        $user->username = "onlyfans";
+        $user->password = "password";
+        $user->email = "only@example.com";
+        $user->phone_number = "0000000001";
+        $user->save();
+
+        // Staff #2
+        $user = new User();
+        $user->role = "STAFF";
+        $user->id = "3";
+        $user->name = "Only Fans";
+        $user->username = "onlyfans";
+        $user->password = "password";
+        $user->email = "only@example.com";
+        $user->phone_number = "0000000001";
+        $user->save();
+
+        // Staff #3
+        $user = new User();
+        $user->role = "STAFF";
+        $user->id = "4";
         $user->name = "Only Fans";
         $user->username = "onlyfans";
         $user->password = "password";
@@ -36,6 +60,7 @@ class UserSeeder extends Seeder
         // Student #1
         $user = new User();
         $user->role = "STUDENT";
+        $user->id = "5";
         $user->name = "Eiei Doe";
         $user->username = "edoe";
         $user->password = "password";
@@ -46,6 +71,7 @@ class UserSeeder extends Seeder
         // Student #2
         $user = new User();
         $user->role = "STUDENT";
+        $user->id = "6";
         $user->name = "Dorae Mon";
         $user->username = "doraemon";
         $user->password = "password";
@@ -56,6 +82,7 @@ class UserSeeder extends Seeder
         // Student #3
         $user = new User();
         $user->role = "STUDENT";
+        $user->id = "7";
         $user->name = "Pink Pop";
         $user->username = "pink";
         $user->password = "password";

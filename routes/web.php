@@ -92,9 +92,9 @@ Route::get('/create-event', function () {
     return view("events.create");
 })->name("create-event");
 
-Route::get('/event', function() {
+Route::get('/events', function() {
     return view("events.index");
-})->name("event-index");
+})->name("events");
 
 Route::get('/show-event', function(){
     return view("events.show");
@@ -108,7 +108,7 @@ Route::get('/show-event', function(){
 // IDK
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect()->route('events'); // view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
