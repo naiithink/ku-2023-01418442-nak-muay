@@ -2,27 +2,30 @@
 <html>
 
 <head>
-    <title>KU Events</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/theme.css">
+<title>KU Events</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/theme.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<style>
+    body,h1,li,a {font-family: "Montserrat", sans-serif}
+</style>
 </head>
 
 <body>
     <div class="w3-yellow-p"></div>
 
     <!-- Navbar (sit on top) -->
-    <div class="w3-top">
-        <div class="w3-bar mint-b w3-wide w3-padding w3-card">
-            <a href="{{ route('main-public') }}" class="w3-bar-item w3-button"><b>KU</b> Events</a>
-            <!-- Float links to the right. Hide them on small screens -->
-            <div class="w3-right w3-hide-small">
-                <a href="{{ route('how-to-use') }}" class="w3-bar-item w3-button">How To Use</a>
-                <a href="{{ route('login') }}" class="w3-bar-item w3-button">Log In</a>
-                <a href="{{ route('signup') }}" class="w3-bar-item w3-button">Sign Up</a>
-            </div>
-        </div>
-    </div>
+    <!-- Navbar (sit on top) -->
+<div class="back"></div>
+<nav>
+  <a href="{{ route('how-to-use') }}" id="demo"></a>
+  <a href="{{ route('how-to-use') }}">About</a>
+  <a href="#home" style="color:white"><b>KU EVENTS</b></a>
+  <a href="{{ route('how-to-use') }}">How to use</a>
+  <a href="{{ route('how-to-use') }}">Account</a>
+</nav>
 
     <div align="center">
         <h1> - </h1>

@@ -57,11 +57,15 @@
 <html>
 
 <head>
-    <title>KU Events</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/theme.css">
+<title>KU Events</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/theme.css">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<style>
+    body,h1,li,a {font-family: "Montserrat", sans-serif}
+</style>
 </head>
 
 <body>
