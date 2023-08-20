@@ -16,18 +16,14 @@
                     <div class="w-full text-center mt-24">
                         <div class="flex justify-center lg:pt-4 pt-8 pb-0">
                             <div class="p-3 text-center">
-                                <span class="text-xl font-bold block uppercase tracking-wide text-slate-700 dark:text-white">3,360</span>
-                                <span class="text-sm text-slate-400">Photos</span>
+                                <span class="text-xl font-bold block uppercase tracking-wide text-slate-700 dark:text-white">{{Auth::user()->role}}</span>
+                                <span class="text-sm text-slate-400">Role</span>
                             </div>
                             <div class="p-3 text-center">
-                                <span class="text-xl font-bold block uppercase tracking-wide text-slate-700 dark:text-white">2,454</span>
-                                <span class="text-sm text-slate-400">Followers</span>
+                                <span class="text-xl font-bold block uppercase tracking-wide text-slate-700 dark:text-white">{{Auth::user()->phone_number}}</span>
+                                <span class="text-sm text-slate-400">Phone Numbers</span>
                             </div>
 
-                            <div class="p-3 text-center">
-                                <span class="text-xl font-bold block uppercase tracking-wide text-slate-700 dark:text-white">564</span>
-                                <span class="text-sm text-slate-400">Following</span>
-                            </div>
                         </div>
                     </div>
 
@@ -42,8 +38,7 @@
                 <div class="mt-6 py-6 border-t border-slate-200 dark:border-teal-200 text-center">
                     <div class="flex flex-wrap justify-center">
                         <div class="w-full px-4">
-                            <p class="font-light leading-relaxed text-slate-600 mb-4 dark:text-white">An artist of considerable range, Mike is the name taken by Melbourne-raised, Brooklyn-based Nick Murphy writes, performs and records all of his own music, giving it a warm.</p>
-{{--                            <a href="javascript:;" class="font-normal text-slate-700 hover:text-slate-400 dark:text-white">Follow Account</a>--}}
+                            <p class="font-light leading-relaxed text-slate-600 mb-4 dark:text-white">hello </p>
                         </div>
 
                     </div>

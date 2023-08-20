@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,28 +17,19 @@ use App\Http\Controllers\AboutController;
 |
 */
 
-// main.not.login
 Route::get('/', function () {
-    return view('main-public');
-})->name('main-public');
-
-//// main.not.login
-//Route::get('/main-public', function () {
-//    return view('main-public');
-//})->name('main-public');
+    return redirect()->route('events');
+})->name('home');
 
 // hot-to-use
 Route::get('/how-to-use', function () {
-    return view("login.how-to-use");
+    return view("how-to-use");
 })->name("how-to-use");
 
 // login
 Route::get('/login', function () {
     return view("auth.login");
 })->name("login");
-
-// register
-// Route::resource('/registers', \App\Http\Controllers\RegisterController::class);
 
 Route::get('/register', function () {
     return view("auth.register");
@@ -63,6 +56,10 @@ Route::get('/staff-requests', function () {
     return view("staff.staff-requests");
 })->name("staff-requests");
 
+Route::get('/staff-create', function () {
+    return view("staff.create");
+})->name("staff-create");
+
 Route::get('/student-certificates', function () {
     return view("student.student-certificates");
 })->name("student-certificates");
@@ -86,23 +83,28 @@ Route::get('/profile-show', function () {
     return view("profile.show");
 })->name("profile");
 
+// Resources
+// Events
+Route::resource('/events', EventController::class, [
+    'names' =>[
+        'index' => 'events',
+        'create' => 'create-event',
+        'edit' => 'edit-event',
+        'show' => 'show-event'
+    ]
+]);
 
-// events
-Route::get('/create-event', function () {
-    return view("events.create");
-})->name("create-event");
+Route::get('/open-website', [WebsiteController::class, 'openWebsite']);
 
-Route::get('/events', function() {
-    return view("events.index");
-})->name("events");
+Route::get('/setStatus', 'App\Http\Controllers\EventController@setStatus');
+Route::get('/addAttendee', 'App\Http\Controllers\EventController@addAttendee');
 
-Route::get('/show-event', function(){
-    return view("events.show");
-})->name("show-event");
+// Route::get('event-update/{id}',[
+//     UserController::class,'update'
+// ])->name('event-update');
 
-
-
-
+// Register
+// Route::resource('/registers', \App\Http\Controllers\RegisterController::class);
 
 
 // IDK

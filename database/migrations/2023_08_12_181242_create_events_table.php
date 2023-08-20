@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -22,7 +23,7 @@ return new class extends Migration
             $table->datetime('date');
             $table->string('status')->default('PENDING')->comment('EventStatusEnum');
             $table->integer('attendee_capacity');
-            $table->text('disapproval_reasons');
+            $table->text('disapproval_reasons')->nullable();
         });
     }
 

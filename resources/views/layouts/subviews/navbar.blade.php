@@ -38,7 +38,7 @@
 <header class="sticky top-0 left-0 z-20">
     <nav class="font-mono bg-white dark:bg-gray-900 w-full border-b border-teal-200 dark:border-teal-300">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="{{route('main-public')}}" class="flex items-center">
+            <a href="{{route('home')}}" class="flex items-center">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">KU Events</span>
             </a>
 
@@ -61,16 +61,11 @@
                         <ul class="py-2" aria-labelledby="user-menu-button">
                             @if(Auth::user()->role === "ADMIN")
                                 <li>
-                                    <a href="{{route('how-to-use')}}" class="block px-4 py-2 text-sm w-full text-center text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Create Staff</a>
-                                </li>
-                            @endif
-                            @if(Auth::user()->role === "STAFF")
-                                <li>
-                                    <a href="{{route('staff-requests')}}" class="block px-4 py-2 text-sm w-full text-center text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Requests</a>
+                                    <a href="{{ route('staff-create') }}" class="block px-4 py-2 text-sm w-full text-center text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Create Staff</a>
                                 </li>
                             @endif
                             <li>
-                                <a href="{{route('profile')}}" class="block px-4 py-2 text-sm w-full text-center text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profile</a>
+                                <a href="{{ route('profile') }}" class="block px-4 py-2 text-sm w-full text-center text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profile</a>
                             </li>
                             <li>
                                 <form action="{{route('logout')}}" method="POST">
@@ -103,7 +98,7 @@
                                class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">How To Use</a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="#all-events"
                                class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">All Events</a>
                         </li>
 
@@ -145,7 +140,7 @@
                                class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">How To Use</a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="all-events"
                                class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">All Events</a>
                         </li>
 
@@ -204,5 +199,13 @@
 {{--    </div>--}}
 </header>
 
+<script type="text/javascript">
+    import Echo from 'laravel-echo'
 
-
+    window.Echo = new Echo({
+        broadcaster: 'pusher',
+        key: process.env.MIX_PUSHER_APP_KEY,
+        cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+        encrypted: true,
+    });
+</script>

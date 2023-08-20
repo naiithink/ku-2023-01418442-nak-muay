@@ -14,7 +14,7 @@ class RegisterController extends Controller
     public function index()
     {
         $registers = Register::get();
-        return view('main-public', ['registers'=> $registers
+        return view('events', ['registers'=> $registers
         ]);
     }
 
@@ -48,7 +48,7 @@ class RegisterController extends Controller
         $register->email = $register_email;
         $register->save();
 
-        return redirect()->route('main-public');
+        return redirect()->route('events');
     }
 
     /**
