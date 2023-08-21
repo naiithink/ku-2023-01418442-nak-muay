@@ -59,11 +59,11 @@
 
                         {{-- >>> Displays by roles --}}
                         <ul class="py-2" aria-labelledby="user-menu-button">
-                            @if(Auth::user()->role === "ADMIN")
+                            {{-- @if(Auth::user()->role === "ADMIN")
                                 <li>
                                     <a href="{{ route('staff-create') }}" class="block px-4 py-2 text-sm w-full text-center text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Create Staff</a>
                                 </li>
-                            @endif
+                            @endif --}}
                             <li>
                                 <a href="{{ route('profile.show', ['user' => Auth::user()]) }}" class="block px-4 py-2 text-sm w-full text-center text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profile</a>
                             </li>

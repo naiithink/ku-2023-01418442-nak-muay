@@ -97,8 +97,8 @@ Route::resource('/events', EventController::class, [
 
 Route::get('/open-website', [WebsiteController::class, 'openWebsite']);
 
-Route::get('/setStatus', 'App\Http\Controllers\EventController@setStatus');
-Route::get('/addAttendee', 'App\Http\Controllers\EventController@addAttendee');
+Route::get('/setStatus', 'App\Http\Controllers\EventController@setStatus')->name('events.set-status');
+Route::put('/addAttendee/', 'App\Http\Controllers\EventController@addAttendee')->name('events.add-attendee');
 Route::get('/linkVideo', 'App\Http\Controllers\UserController@linkVideo');
 
 // Route::get('event-update/{id}',[

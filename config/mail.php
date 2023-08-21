@@ -81,6 +81,9 @@ return [
         'failover' => [
             'transport' => 'failover',
             'mailers' => [
+                // 'postmark',
+                // 'mailgun',
+                // 'sendmail',
                 'smtp',
                 'log',
             ],
@@ -99,8 +102,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'no_reply@events.ku.th'),
+        'name' => env('MAIL_FROM_NAME', 'KU Events'),
     ],
 
     /*

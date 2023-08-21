@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignIdFor(Event::class);
             $table->foreignIdFor(User::class);
+            $table->string('description')->default('[NOT PROVIDED]')->comment('Description for joining an event');
         });
     }
 

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\JoinedEvent;
 use App\Models\Event;
 use App\Models\Enums\EventStatusEnum;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class EventController extends Controller
 {
@@ -113,9 +115,25 @@ class EventController extends Controller
 
     public function addAttendee(Request $request)
     {
+        // $validated = $request->validate([
+        //     ''
+        // ]);
+
+        // dd($request);
+        // dd($request->get('empty-description'));
+
         $event = Event::find($request->get('event_id'));
-        $event->attendees()->attach($request->get('user_id'));
+
+        if ($request->get('empty-description') === 'on' || empty($request->get('description')))
+            $event->attendees()->attach($request->get('user_id'));
+        else
+            $event->attendees()->attach($request->get('user_id'), [
+                'description' => $request->get('description')
+            ]);
+
         $event->save();
+
+        Mail::to($request->user())->send(new JoinedEvent($event));
 
         return redirect()->route('show-event', ['event' => $event]);
     }

@@ -22,7 +22,7 @@ class Event extends Model
 
     public function attendees(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'event_attendees', 'event_id', 'user_id');
+        return $this->belongsToMany(User::class, 'event_attendees', 'event_id', 'user_id')->withPivot('description');
     }
 
     public function getStatus(): EventStatusEnum

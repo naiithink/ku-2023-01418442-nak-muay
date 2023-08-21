@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
         $user->link_video = "01";
         $user->save();
 
-        // Staff #1
+        // Staff
         $user = new User();
         $user->role = "STAFF";
         $user->id = "2";
@@ -35,30 +35,6 @@ class UserSeeder extends Seeder
         $user->email = "onlyfans@example.com";
         $user->phone_number = "0000000001";
         $user->link_video = "02";
-        $user->save();
-
-        // Staff #2
-        $user = new User();
-        $user->role = "STAFF";
-        $user->id = "3";
-        $user->name = "Only Me";
-        $user->username = "onlyme";
-        $user->password = "password";
-        $user->email = "onlyme@example.com";
-        $user->phone_number = "0000000001";
-        $user->link_video = "03";
-        $user->save();
-
-        // Staff #3
-        $user = new User();
-        $user->role = "STAFF";
-        $user->id = "4";
-        $user->name = "Only You";
-        $user->username = "onlyyou";
-        $user->password = "password";
-        $user->email = "onlyyou@example.com";
-        $user->phone_number = "0000000001";
-        $user->link_video = "04";
         $user->save();
 
         // Student #1

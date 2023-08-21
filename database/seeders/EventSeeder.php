@@ -20,7 +20,7 @@ class EventSeeder extends Seeder
         $event->description = "Tattoo Colour X LenYai ";
         $event->fund = 3000;
         $event->date = "2024-08-19 20:00:00";
-        $event->status = "PENDING";
+        $event->status = "APPROVED";
         $event->attendee_capacity = "10";
         $event->save();
         $event->managers()->attach([2, 4]);
@@ -33,7 +33,7 @@ class EventSeeder extends Seeder
         $event->description = "Tattoo Colour X BarnPuen ";
         $event->fund = 3000;
         $event->date = "2024-08-28 20:00:00";
-        $event->status = "PENDING";
+        $event->status = "APPROVED";
         $event->attendee_capacity = "10";
         $event->save();
         $event->managers()->attach([2, 4]);

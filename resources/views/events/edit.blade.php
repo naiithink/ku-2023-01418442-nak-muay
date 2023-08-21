@@ -16,6 +16,8 @@
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg w3-padding-32">
             <h1 class=" pt-8 pb-6  text-3xl">{{ $event->event_name }}</h1>
 
+            @if ($event->status === 'APPROVE')
+
             <a href="{{ action('EventController@setStatus', ['id' => $event->id, 'status' => 'APPROVED']) }}" align="center">
                 <button type="button" class="w3-center text-white bg-green-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0  dark:hover:bg-green-700 dark:focus:ring-green-800">Approve</button>
             </a>
@@ -23,6 +25,7 @@
             <a href="{{ action('EventController@setStatus', ['id' => $event->id, 'status' => 'REJECTED']) }}" align="center">
                 <button type="button" class="w3-center text-white bg-red-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2 text-center mr-3 md:mr-0 dark:hover:bg-red-700 dark:focus:ring-red-800">Reject</button>
             </a>
+            @endif
 
             <div class="flex -mx-3 justify-center font-mono">
                 <div class="w-full px-3 mb-5">
@@ -37,6 +40,8 @@
                 </div>
             </div>
         </div>
+
+
 
         <h1 class="py-4">Members list</h1>
 
@@ -58,6 +63,8 @@
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Email
+                        </th><th scope="col" class="px-6 py-3">
+                            description
                         </th>
 
                     </tr>
@@ -80,7 +87,9 @@
                         <td class="px-6 py-4">
                             {{ $attendee->email }}
                         </td>
-
+                        <td class="px-6 py-4">
+                            {{ $event->attendees->find($attendee->id)->pivot->description }}
+                        </td>
                     </tr>
                 </tbody>
                 @endforeach
