@@ -17,15 +17,16 @@
                 </h1>
 
                 <h1 class="w3-padding w3-black w3-opacity-min w3-left">
-                    3. Students can click "Join" button to join a event.
+                    3. Students can click "Join" to join an event.
                 </h1>
 
                 <h1 class="w3-padding w3-black w3-opacity-min w3-left">
-                    4. For students, who need to create a event. You can click "Create Events" on the Navbar and fill information tosend event request to staff.
+                    4. To request to create an event, click "Create an Event" in All Events section, you will be redirected to a page for creating an event. Fill out all the information then click "Create Event". Your request will be reviewed by the staff.
                 </h1>
 
                 <h1 class="w3-padding w3-black w3-opacity-min w3-left">
-                    5. After Staff approve your event. You'll be a event manager. Your event'll show at the first page and you can click "Read More" button to check event member or edit your event description.
+                    5. Once the staff has approved your request, you will then become the event manager.
+                    Your event will be shown at the home page. Click "Read More" to check some other details, as well as the event attendees.
                 </h1>
             </h1>
         </div>

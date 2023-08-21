@@ -112,7 +112,7 @@
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                             <i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
                                         <input type="number" id="attendee_capacity" name="attendee_capacity" required
-                                            autofocus min="10" max="50" step="1" list="attendeeCapacity"
+                                            autofocus min="1"  step="1" list="attendeeCapacity"
                                             autocomplete="off"
                                             class="w-full -ml-10 pl-5 pr-3 py-3 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                                             placeholder="0">
