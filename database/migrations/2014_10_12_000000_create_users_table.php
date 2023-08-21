@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone_number')->nullable();
             $table->string('contact_link')->nullable();
+            $table->string('link_video')->default('NOVIDEO');
             $table->rememberToken();
             $table->timestamps();
         });

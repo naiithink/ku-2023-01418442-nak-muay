@@ -22,10 +22,22 @@
                             </div>
 
                             <!-- status -->
+                            @if ($event->status === 'APPROVED')
+                                <div class="p-3 text-center">
+                                    <span class="text-xl font-bold block uppercase tracking-wide text-green-500 dark:text-white">{{ $event->status }}</span>
+                                    <span class="text-sm text-slate-400">Status</span>
+                                </div>
+                            @elseif ($event->status === 'REJECTED')
                             <div class="p-3 text-center">
-                                <span class="text-xl font-bold block uppercase tracking-wide text-slate-700 dark:text-white">{{ $event->status }}</span>
+                                <span class="text-xl font-bold block uppercase tracking-wide text-red-500 dark:text-white">{{ $event->status }}</span>
                                 <span class="text-sm text-slate-400">Status</span>
                             </div>
+                            @else
+                            <div class="p-3 text-center">
+                                <span class="text-xl font-bold block uppercase tracking-wide text-blue-500 dark:text-white">{{ $event->status }}</span>
+                                <span class="text-sm text-slate-400">Status</span>
+                            </div>
+                            @endif
 
 
                         </div>
@@ -53,6 +65,7 @@
                     {{--edit--}}
                     @if (Auth::user() === null)
 
+                    <!-- edit -->
                     @elseif (Auth::user()->role === "STAFF" || Auth::user()->role === "STUDENT" && $event->isManager(Auth::user()->id) == true )
                         <div class="flex items-center justify-center mt-4">
                             <a href="{{ route("edit-event", ['event' => $event]) }}" class="inline-flex items-center px-8 py-2 text-lg font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -75,15 +88,52 @@
                             </svg>
                         </a>
                         @elseif($event->status === 'APPROVED' && !$event->isAttendee(Auth::user()->id))
-                        Joined
+                        <h1>Joined</h1>
                         @endif
                     </div>
+                    <div class="flex item-center justify-center mt-10">
+                        <table class=" text-sm text-left text-gray-500 dark:text-gray-400 border-2 border-teal-300" style="width: 800px">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                        ID
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Name
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Role
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Email
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            @foreach ($attendees as $attendee)
+                            <tbody>
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        {{ $attendee->id }}
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        {{ $attendee->name }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $attendee->role }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $attendee->email }}
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                            @endforeach
+                        </table>
+                    </div>
                     @endif
-
                 </div>
-
             </div>
         </div>
-
     </div>
 @endsection

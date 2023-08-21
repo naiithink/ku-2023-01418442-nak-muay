@@ -5,6 +5,7 @@ use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\EventController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,9 +80,9 @@ Route::get('/certificate', function () {
 })->name("certificates");
 
 
-Route::get('/profile-show', function () {
-    return view("profile.show");
-})->name("profile");
+// Route::get('/profile-show', function () {
+//     return view("profile.show");
+// })->name("profile");
 
 // Resources
 // Events
@@ -98,6 +99,7 @@ Route::get('/open-website', [WebsiteController::class, 'openWebsite']);
 
 Route::get('/setStatus', 'App\Http\Controllers\EventController@setStatus');
 Route::get('/addAttendee', 'App\Http\Controllers\EventController@addAttendee');
+Route::get('/linkVideo', 'App\Http\Controllers\UserController@linkVideo');
 
 // Route::get('event-update/{id}',[
 //     UserController::class,'update'
@@ -112,6 +114,11 @@ Route::get('/addAttendee', 'App\Http\Controllers\EventController@addAttendee');
 Route::get('/dashboard', function () {
     return redirect()->route('events'); // view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::get('/profile/{user}', function(User $user) {
+    return view('profile.show', ['user' => $user]);
+})->name('profile.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

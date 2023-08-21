@@ -54,11 +54,12 @@
                             Role
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Email
+                            Profile
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Action
+                            Email
                         </th>
+
                     </tr>
                 </thead>
                 @foreach ($attendees as $attendee)
@@ -74,11 +75,12 @@
                             {{ $attendee->role }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $attendee->email }}
+                            <a href="{{ route('profile.show', ['user' => $attendee]) }}">See Profile</a>
                         </td>
                         <td class="px-6 py-4">
-                            <a href="" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                            {{ $attendee->email }}
                         </td>
+
                     </tr>
                 </tbody>
                 @endforeach

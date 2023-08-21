@@ -29,8 +29,26 @@
     </div>
 
     <div class="grid grid-cols-3 gap-20 ml-14 mt-10">
+        @php
+        {{
+            $eventCount = 0;
+        }}
+        @endphp
+        @if($events === null)
 
+        @else
         @foreach($events as $event)
+            @if(Auth::user() === null
+                || (
+                    Auth::user()->role === 'STUDENT'
+                        && (
+                            $event->status === 'REJECTED' || $event->status === 'PENDING'
+                        ) && !$event->isManager(Auth::user()->id)
+                    )
+                )
+                @continue
+            @endif
+
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
                 <div class="flex items-center justify-center">
                     <a href="{{ route('show-event', ['event' => $event]) }}">
@@ -60,7 +78,36 @@
                     </a>
                 </div>
             </div>
+            @php
+            {{
+                $eventCount++;
+            }}
+            @endphp
         @endforeach
+
+            @if($eventCount == 0)
+            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
+                <div class="flex items-center justify-center">
+                    <a href="#">
+                        <img class="rounded-t-lg h-72 min-h-full max-h-72 "
+                        src="{{ asset('image/event-image-3.jpeg')}}"
+                        alt="event-image" />
+                    </a>
+                </div>
+                <div class="border-b-2 border-b-teal-500 w-full"></div>
+                <div class="p-5">
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">No Events </h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">No Event T_T</p>
+                    <div class="flex mt-5 mb-3">
+                        <h3 class="front-bold text-base text-red-500">Date:</h3>
+                        <p class="pl-2 text-sm text-red-500 mt-1">-----</p>
+                    </div>
+                </div>
+            </div>
+            @endif
+        @endif
 
     </div>
 

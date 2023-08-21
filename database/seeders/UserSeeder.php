@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
         $user->password = "password";
         $user->email = "jdoe@example.com";
         $user->phone_number = "0000000000";
+        $user->link_video = "01";
         $user->save();
 
         // Staff #1
@@ -33,6 +34,7 @@ class UserSeeder extends Seeder
         $user->password = "password";
         $user->email = "onlyfans@example.com";
         $user->phone_number = "0000000001";
+        $user->link_video = "02";
         $user->save();
 
         // Staff #2
@@ -44,6 +46,7 @@ class UserSeeder extends Seeder
         $user->password = "password";
         $user->email = "onlyme@example.com";
         $user->phone_number = "0000000001";
+        $user->link_video = "03";
         $user->save();
 
         // Staff #3
@@ -55,6 +58,7 @@ class UserSeeder extends Seeder
         $user->password = "password";
         $user->email = "onlyyou@example.com";
         $user->phone_number = "0000000001";
+        $user->link_video = "04";
         $user->save();
 
         // Student #1
@@ -66,6 +70,7 @@ class UserSeeder extends Seeder
         $user->password = "password";
         $user->email = "edoe@example.com";
         $user->phone_number = "0000000002";
+        $user->link_video = "05";
         $user->save();
 
         // Student #2
@@ -77,6 +82,7 @@ class UserSeeder extends Seeder
         $user->password = "password";
         $user->email = "doraemon@example.com";
         $user->phone_number = "0000000003";
+        $user->link_video = "06";
         $user->save();
 
         // Student #3
@@ -88,6 +94,7 @@ class UserSeeder extends Seeder
         $user->password = "password";
         $user->email = "pink@example.com";
         $user->phone_number = "0000000004";
+        $user->link_video = "07";
         $user->save();
     }
 }
