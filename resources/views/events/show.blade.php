@@ -169,6 +169,13 @@
                             @endif
                         </div>
 
+                        {{-- @php
+                            dd($event->attendees->count())
+                        @endphp --}}
+
+                        @if ($event->attendees->count() === 0)
+                            <p class="text-red-500 mt-4"> No One Joined! </p>
+                        @else
                         <p class="text-black dark:text-white mt-5">Attendees List</p>
                         <div class="flex item-center justify-center mt-5">
                             <table class=" text-sm text-left text-gray-500 dark:text-gray-400 border-2 border-teal-300"
@@ -206,6 +213,12 @@
                                 @endforeach
                             </table>
                         </div>
+                        @endif
+
+
+
+
+
                     @endif
                 </div>
             </div>

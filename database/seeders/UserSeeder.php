@@ -15,38 +15,38 @@ class UserSeeder extends Seeder
     {
         // Admin
         $user = new User();
-        $user->id = "1";
+        $user->id = 1;
         $user->role = "ADMIN";
         $user->name = "Administrator";
         $user->password = "password";
         $user->email = "admin@events.ku.th";
-        $user->phone_number = "0000000000";
+        $user->phone_number = "025790113";
         $user->save();
 
         // Staff
         $user = new User();
-        $user->id = "2";
+        $user->id = 2;
         $user->role = "STAFF";
         $user->name = "Staff";
         $user->password = "password";
         $user->email = "staff@events.ku.th";
-        $user->phone_number = "0000000001";
+        $user->phone_number = "025625555";
         $user->save();
 
         // Student #1 Mute
         $user = new User();
-        $user->id = "3";
+        $user->id = 3;
         $user->role = "STUDENT";
         $user->name = "Mute Naka";
         $user->password = "password";
         $user->email = "mute@example.com";
         $user->phone_number = "0000000002";
-        $user->website = "https://youtube.com";
+        $user->website = "https://www.imdb.com/title/tt1464763/";
         $user->save();
 
         // Student #2 Smart
         $user = new User();
-        $user->id = "4";
+        $user->id = 4;
         $user->role = "STUDENT";
         $user->name = "Smart Nakrub";
         $user->password = "password";
@@ -57,7 +57,7 @@ class UserSeeder extends Seeder
 
         // Student #3 Pink
         $user = new User();
-        $user->id = "5";
+        $user->id = 5;
         $user->role = "STUDENT";
         $user->name = "Pink Pop";
         $user->password = "password";
@@ -68,7 +68,7 @@ class UserSeeder extends Seeder
 
         // Student #4 Ton
         $user = new User();
-        $user->id = "6";
+        $user->id = 6;
         $user->role = "STUDENT";
         $user->name = "Ton Nawapon";
         $user->password = "password";
@@ -79,7 +79,7 @@ class UserSeeder extends Seeder
 
         // Student #5 Au
         $user = new User();
-        $user->id = "7";
+        $user->id = 7;
         $user->role = "STUDENT";
         $user->name = "Au Chana";
         $user->password = "password";
@@ -90,13 +90,13 @@ class UserSeeder extends Seeder
 
         // Student #6 Nai
         $user = new User();
-        $user->id = "8";
+        $user->id = 8;
         $user->role = "STUDENT";
         $user->name = "Nai Potsawat";
         $user->password = "password";
         $user->email = "potsawat.t@ku.th";
-        $user->phone_number = "191";
-        $user->website = "https://instagram.com/naiithink.me";
+        $user->phone_number = "0922480100";
+        $user->website = "https://twitter.com/naiithink";
         $user->save();
     }
 }
