@@ -23,10 +23,10 @@
                     <label class=" pt-6">Date: </label>
                     <h1 class=" pt-2 pb-6  text-3xl text-red-500 "">
                         {{ DateTime::createFromFormat('Y-m-d H:i:s', '2024-08-28 17:00:00')->format('d F Y H:m:s') }}
-                    </label>
+                        </label>
 
-                    <label class="">Attendee Capacity: </label>
-                    <h1 class=" pt-8 pb-6  text-3xl">{{ $event->attendee_capacity }}</h1>
+                        <label class="">Attendee Capacity: </label>
+                        <h1 class=" pt-8 pb-6  text-3xl">{{ $event->attendee_capacity }}</h1>
 
 
 
@@ -61,7 +61,7 @@
                                 </div>
                             </form>
 
-                            {{-- <h1 class="py-4">Members list</h1>
+                            <h1 class="py-4">Members list</h1>
 
                             <div class="flex item-center justify-center">
                                 <table class=" text-sm text-left text-gray-500 dark:text-gray-400 border-2 border-teal-300"
@@ -116,60 +116,76 @@
                                     @endforeach
 
                                 </table>
-                            </div> --}}
+                            </div>
                         @endif
                 </div>
-            @elseif(Auth::user()->role === 'STUDENT' && $event->isManager(Auth::user()->id) == true && $event->attendees->count() === 0)q
+            @elseif(Auth::user()->role === 'STUDENT' && $event->isManager(Auth::user()->id) == true)
+                <h1 class=" pt-8 pb-6  text-3xl">{{ $event->event_name }}</h1>
 
-                <div class="flex item-center justify-center">
-                    <table class=" text-sm text-left text-gray-500 dark:text-gray-400 border-2 border-teal-300"
-                        style="width: 1000px">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
+                <label class=" pt-6 pb-6">Fund:</label>
+                <h1 class=" pt-2 pb-6  text-3xl">{{ $event->currency }}<span
+                        class="text-green-500">{{ $event->fund }}</span></h1>
 
-                                <th scope="col" class="px-6 py-3">
-                                    Name
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Role
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Email
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Profile
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    description
-                                </th>
+                <label class=" pt-6">Date: </label>
+                <h1 class=" pt-2 pb-6  text-3xl text-red-500 ">
+                    {{ DateTime::createFromFormat('Y-m-d H:i:s', '2024-08-28 17:00:00')->format('d F Y H:m:s') }}</h1>
 
-                            </tr>
-                        </thead>
-                        @foreach ($attendees as $attendee)
-                            <tbody>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <label class="">Attendee Capacity: </label>
+                <h1 class=" pt-8 pb-6  text-3xl">{{ $event->attendee_capacity }}</h1>
 
-                                    <td class="px-6 py-4">
-                                        {{ $attendee->name }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $attendee->role }}
-                                    </td>
+                @if ($event->attendees->count() > 0)
+                    <h1 class="py-4">Members list</h1>
 
-                                    <td class="px-6 py-4">
-                                        {{ $attendee->email }}
-                                    </td>
-                                    <td class="px-6 py-4 text-blue-500">
-                                        <a href="{{ route('profile.show', ['user' => $attendee]) }}">See Profile</a>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $event->attendees->find($attendee->id)->pivot->description }}
-                                    </td>
+                    <div class="flex item-center justify-center">
+                        <table class=" text-sm text-left text-gray-500 dark:text-gray-400 border-2 border-teal-300"
+                            style="width: 1000px">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+
+                                    <th scope="col" class="px-6 py-3">
+                                        Name
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Role
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Email
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Profile
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        description
+                                    </th>
+
                                 </tr>
-                            </tbody>
-                        @endforeach
-                    </table>
-                </div>
+                            </thead>
+                            @foreach ($attendees as $attendee)
+                                <tbody>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+
+                                        <td class="px-6 py-4">
+                                            {{ $attendee->name }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            {{ $attendee->role }}
+                                        </td>
+
+                                        <td class="px-6 py-4">
+                                            {{ $attendee->email }}
+                                        </td>
+                                        <td class="px-6 py-4 text-blue-500">
+                                            <a href="{{ route('profile.show', ['user' => $attendee]) }}">See Profile</a>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            {{ $event->attendees->find($attendee->id)->pivot->description }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            @endforeach
+                        </table>
+                    </div>
+                @endif
             @endif
             </ul>
     @endif
