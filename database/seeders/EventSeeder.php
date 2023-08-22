@@ -35,6 +35,7 @@ class EventSeeder extends Seeder
         $event->date = "2024-08-30 22:00:00";
         $event->status = "REJECTED";
         $event->attendee_capacity = "25";
+        $event->disapproval_reasons = "Too much funding.";
         $event->save();
         $event->managers()->attach([4]);
         $event->save();

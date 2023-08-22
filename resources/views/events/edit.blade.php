@@ -37,7 +37,7 @@
             <a href="{{ action('EventController@setStatus', ['id' => $event->id, 'status' => 'REJECTED']) }}" align="center">
                 <button type="button" class="w3-center text-white bg-red-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2 text-center mr-3 md:mr-0 dark:hover:bg-red-700 dark:focus:ring-red-800">Reject</button>
             </a>
-
+{{--
             <div class="flex -mx-3 justify-center font-mono">
                 <div class="w-full px-3 mb-5">
                     <div class="justify-center font-mono ml-7">
@@ -49,7 +49,7 @@
                             placeholder="Reasons for rejection">
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <h1 class="py-4">Members list</h1>
 
