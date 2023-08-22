@@ -1,12 +1,17 @@
 # KU Events
 
-An event management web application built with [Laravel](https://laravel.com/).
+An event management web application built with [Laravel](https://laravel.com/)
 
 
 ## Installation
 
-1. Install Docker to your machine
-1. Clone this repository down to your local machine, then change into the project directory.
+1. Install [Docker](https://www.docker.com/) to your machine
+1. Clone this repository down to your local machine, then change into the project directory
+
+        $ git clone https://github.com/naiithink/nak-muay.git nak-muay
+        ...
+        $ cd nak-muay
+
 1. Install Composer dependencies
 
         $ docker run --rm \
@@ -43,7 +48,7 @@ An event management web application built with [Laravel](https://laravel.com/).
         $ sail npm run dev
 
 3. By default, the web server is accessible at [`http://localhost:80`](http://localhost:80).  
-    If the `80` port has already been taken, visit the website with port number stated in command output from the first step.
+    If the `80` port has already been taken, visit the website with port number stated in prior command output for starting the web server.
 
     For instance, with port number `8080`, the effective URL would be `http://localhost:8080`.
 
