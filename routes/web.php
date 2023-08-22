@@ -36,18 +36,9 @@ Route::get('/register', function () {
     return view("auth.register");
 })->name("register");
 
-<<<<<<< HEAD
-Route::get('/logout', function () {
-    return view("auth.logout");
-})->name("logout");
-
-// forgot-password bug?
-Route::get('/forgot-password', function () {
-=======
 
 // forgot-password
 Route::get('/forgot-password2', function () {
->>>>>>> old-main
     return view("auth.forgot-password");
 })->name("forgot-password2");
 
