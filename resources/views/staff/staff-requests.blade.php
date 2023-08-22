@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>KU Events</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/theme.css">
-</head>
-<body>
-<div class="w3-yellow-p"></div>
+@extends('layouts.main')
 
+<<<<<<< HEAD
 <!-- Navbar (sit on top) -->
 <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b  dark:border-gray-600">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -31,5 +23,10 @@
         </div>
     </div>
 </nav>
+=======
+@section('content')
+<p class=" mt-20 ">hello</p>
+>>>>>>> old-main
 
-</body>
+
+@endsection

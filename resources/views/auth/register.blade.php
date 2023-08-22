@@ -1,8 +1,8 @@
-{{--
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+@extends('layouts.main')
 
+<x-guest-layout>
+    <form method="POST" action="{{ route('registers') }}">
+        @csrf
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -13,8 +13,22 @@
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="email" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+
+        <!-- Phone Number -->
+        <div class="mt-4">
+            <x-input-label for="phone_number" :value="__('Phone Number')" />
+            <x-text-input id="phone_number" class="block mt-1 w-full py-2 border border-gray-200" type="text" name="phone_number" :value="old('phone_number')" required autocomplete="phone_number" />
+            <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
+        </div>
+
+        <!-- Contact Link -->
+        <div class="mt-4">
+            <x-input-label for="website" :value="__('Website')" />
+            <x-text-input id="website" class="block mt-1 w-full py-2 border border-gray-200" type="url" name="website" :value="old('website')" required autocomplete="Website" />
+            <x-input-error :messages="$errors->get('website')" class="mt-2" />
         </div>
 
         <!-- Password -->
@@ -51,6 +65,7 @@
         </div>
     </form>
 </x-guest-layout>
+<<<<<<< HEAD
 --}}
 
 <!DOCTYPE html>
@@ -193,3 +208,5 @@
     <body>
 
 </html>
+=======
+>>>>>>> old-main
