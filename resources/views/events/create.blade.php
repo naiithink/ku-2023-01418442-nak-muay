@@ -29,7 +29,8 @@
                                         <div class="flex">
                                             <div
                                                 class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                                                <i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
+                                                <i class="mdi mdi-email-outline text-gray-400 text-lg"></i>
+                                            </div>
                                             <input type="text" id='event_name' name="event_name" required autofocus
                                                 autocomplete="off"
                                                 class="w-full -ml-10 pl-5 pr-3 py-3 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
@@ -45,12 +46,11 @@
                                         <div class="flex">
                                             <div
                                                 class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                                                <i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
-                                            <textarea type="text" id="description" name="description" required autofocus
-                                                autocomplete="off" rows="3"
+                                                <i class="mdi mdi-email-outline text-gray-400 text-lg"></i>
+                                            </div>
+                                            <textarea type="text" id="description" name="description" required autofocus autocomplete="off" rows="3"
                                                 class="w-full -ml-10 pl-5 pr-3 py-3 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                                placeholder="Description"
-                                            ></textarea>
+                                                placeholder="Description"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -63,8 +63,9 @@
                                         <div class="flex">
                                             <div
                                                 class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                                                <i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
-                                            <input type="text" id="fund" name="fund" required autofocus
+                                                <i class="mdi mdi-email-outline text-gray-400 text-lg"></i>
+                                            </div>
+                                            <input type="number" id="fund" name="fund" required autofocus
                                                 autocomplete="off"
                                                 class="w-50 -ml-10 pl-5pr-3 py-3 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                                                 placeholder="Fund">
@@ -77,7 +78,8 @@
                                         <div class="flex">
                                             <div
                                                 class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                                                <i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
+                                                <i class="mdi mdi-email-outline text-gray-400 text-lg"></i>
+                                            </div>
                                             <input type="text" id="currency" name="currency" required autofocus
                                                 list="defaultCurrency" autocomplete="off"
                                                 class="w-40 -ml-10 pl-5 py-3 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
@@ -88,6 +90,9 @@
                                 </div>
                             </div>
 
+                            @php
+                                $currrentDateTime = now()->format('Y-m-d') . 'T' . now()->format('H:m');
+                            @endphp
 
                             <div class="flex -mx-3">
                                 <!-- date-->
@@ -96,9 +101,11 @@
                                     <div class="flex">
                                         <div
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                                            <i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
-                                        <input type="datetime-local" id="date" name="date" required autofocus
-                                            onkeydown="return false"
+                                            <i class="mdi mdi-email-outline text-gray-400 text-lg"></i>
+                                        </div>
+                                        <input type="datetime-local" id="date" name="date"
+                                            value="{{ $currrentDateTime }}" min="{{ $currrentDateTime }}" required autofocus
+                                            onkeydown="return false "
                                             class="w-full -ml-10 pl-5 pr-3 py-3 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                                             placeholder="Date">
                                     </div>
@@ -110,9 +117,10 @@
                                     <div class="flex">
                                         <div
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                                            <i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
+                                            <i class="mdi mdi-email-outline text-gray-400 text-lg"></i>
+                                        </div>
                                         <input type="number" id="attendee_capacity" name="attendee_capacity" required
-                                            autofocus min="1"  step="1" list="attendeeCapacity"
+                                            autofocus min="1" step="1" list="attendeeCapacity"
                                             autocomplete="off"
                                             class="w-full -ml-10 pl-5 pr-3 py-3 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                                             placeholder="0">
@@ -132,11 +140,11 @@
                                 </div>
                             </div>
 
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
     <datalist id="defaultCurrency">
