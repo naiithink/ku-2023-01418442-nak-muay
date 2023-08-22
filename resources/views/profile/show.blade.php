@@ -1,32 +1,36 @@
 @extends('layouts.main')
 
 @section('content')
-
     <!-- component -->
     <div class="py-32">
-        <div class="relative border  max-w-md mx-auto md:max-w-2xl mt-6 min-w-0 break-words bg-white   border-gray-200 dark:bg-gray-800  dark:border-teal-300 w-full mb-6 shadow-lg rounded-xl py-20">
+        <div
+            class="relative border  max-w-md mx-auto md:max-w-2xl mt-6 min-w-0 break-words bg-white   border-gray-200 dark:bg-gray-800  dark:border-teal-300 w-full mb-6 shadow-lg rounded-xl py-20">
             <div class="px-6">
                 <div class="flex flex-wrap justify-center">
                     <div class="w-full flex justify-center pt-8">
                         <div class="relative">
-                            <img src="{{ asset("image/person-2.png") }}" class="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px] dark:bg-white"/>
+                            <img src="{{ asset('image/person-2.png') }}"
+                                class="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px] dark:bg-white" />
                         </div>
                     </div>
 
                     <div class="w-full text-center mt-24">
                         <div class="flex justify-center lg:pt-0 pt-8 pb-0">
                             <div class="p-1 text-center">
-                                <span class="text-xl font-bold block uppercase tracking-wide text-slate-700 dark:text-white">{{ $user->name }}</span>
+                                <span
+                                    class="text-xl font-bold block uppercase tracking-wide text-slate-700 dark:text-white">{{ $user->name }}</span>
                                 <span class="text-sm text-slate-400">Name</span>
                             </div>
                         </div>
                         <div class="flex justify-center lg:pt-2 pt-8 pb-3">
                             <div class="p-3 text-center">
-                                <span class="text-xl font-bold block uppercase tracking-wide text-slate-700 dark:text-white">{{ $user->role }}</span>
+                                <span
+                                    class="text-xl font-bold block uppercase tracking-wide text-slate-700 dark:text-white">{{ $user->role }}</span>
                                 <span class="text-sm text-slate-400">Role</span>
                             </div>
                             <div class="p-3 text-center">
-                                <a href="tel:{{ $user->phone_number }}" target="_blank" rel="noreferrer noopener" class="text-xl font-bold block uppercase tracking-wide text-green-500 dark:text-green-500">{{ $user->phone_number }}</a>
+                                <a href="tel:{{ $user->phone_number }}" target="_blank" rel="noreferrer noopener"
+                                    class="text-xl font-bold block uppercase tracking-wide text-green-500 dark:text-green-500">{{ $user->phone_number }}</a>
                                 <span class="text-sm text-slate-400 ">Phone Number</span>
                             </div>
                         </div>
@@ -34,16 +38,18 @@
                 </div>
 
                 <!-- contact link -->
-                @if($user->website != null)
-                <div class="p-3 text-center">
-                    <a href="{{ $user->website }}" target="_blank" rel="noreferrer noopener" class="text-xl font-bold block lower tracking-wide text-blue-500 dark:text-blue-500">{{ $user->website }}</a>
-                    <span class="text-sm text-slate-400 ">Website</span>
-                </div>
+                @if ($user->website != null)
+                    <div class="p-3 text-center">
+                        <a href="{{ $user->website }}" target="_blank" rel="noreferrer noopener"
+                            class="text-xl font-bold block lower tracking-wide text-blue-500 dark:text-blue-500">{{ $user->website }}</a>
+                        <span class="text-sm text-slate-400 ">Website</span>
+                    </div>
                 @endif
 
                 <div class="text-center mt-6">
                     <div class="text-lg mt-0 mb-2 text-slate-400 font-bold">
-                        <a href="mailto:{{ $user->email }}" target="_blank" rel="noreferrer noopener" class="fas fa-map-marker-alt mr-2 text-blue-500">{{ $user->email }}</a>
+                        <a href="mailto:{{ $user->email }}" target="_blank" rel="noreferrer noopener"
+                            class="fas fa-map-marker-alt mr-2 text-blue-500">{{ $user->email }}</a>
                     </div>
                     <span class="text-sm text-slate-400 ">Email</span>
                 </div>
