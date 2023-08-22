@@ -16,13 +16,11 @@ return new class extends Migration
             $table->id();
             $table->string('role')->default('STUDENT')->comment('UserRoleEnum');
             $table->string('name');
-            $table->string('username')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('phone_number')->default('[NOT PROVIDED]');
-            $table->string('contact_link')->nullable();
-            $table->string('link_video')->default('NOVIDEO');
+            $table->string('website')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

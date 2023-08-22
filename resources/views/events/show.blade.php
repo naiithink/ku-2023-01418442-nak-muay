@@ -51,7 +51,7 @@
                         <!-- date -->
                         <div class="p-3 text-center">
                             <span
-                                class="text-xl font-bold block uppercase tracking-wide text-red-500">{{ $event->date }}</span>
+                                class="text-xl font-bold block uppercase tracking-wide text-red-500">{{ DateTime::createFromFormat('Y-m-d H:i:s', $event->date)->format('d F Y H:m:s') }}</span>
                             <span class="text-sm text-red-500">Date</span>
                         </div>
                     </div>
@@ -61,8 +61,9 @@
                 <div class="text-center mt-6">
                     <h3 class="text-2xl text-slate-700 font-bold leading-normal mb-1 dark:text-white">
                         {{ $event->event_name }}</h3>
-
                 </div>
+
+                    <a href="{{ route('profile.show', ['user' => $event->managers->first()]) }}" class="block px-4 py-2 text-sm w-full text-center text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Contact Manager</a>
 
                 <div class="mt-6 py-6 border-t border-slate-200 dark:border-teal-200 text-center">
                     <div class="flex flex-wrap justify-center">
@@ -88,23 +89,30 @@
                                 </svg>
                             </a>
                         </div>
-                        {{-- @elseif ($event->status === "REJECTED" && Auth::user()->role === 'STAFF' || $event->isManager(Auth::user()->id) == true)
-                        <h1>Rejection Reasons:</h1>
-                            <p>
+                        @elseif ($event->status === "REJECTED" && (Auth::user()->role === 'STAFF' || (Auth::user()->role === 'STUDENT' && $event->isManager(Auth::user()->id) == true)))
+                        <div class="flex item-center justify-center dark:text-white">
+                            <h1 >Rejection Reasons: </h1>
+                            <p class="text-red-500">
                             {{ $event->disapproval_reasons }}
-                            </p> --}}
-                        @elseif ($event->status === "APPROVED" && Auth::user()->role === 'STAFF' || $event->isManager(Auth::user()->id) == true)
-                        <div class="flex items-center justify-center mt-4">
-                            <a href="{{ route('edit-event', ['event' => $event]) }}"
-                                class="inline-flex items-center px-8 py-2 text-lg font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                Edit
-                                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                </svg>
-                            </a>
+                            </p>
                         </div>
+
+                        @elseif ($event->status === "APPROVED" && (Auth::user()->role === 'STAFF' || (Auth::user()->role === 'STUDENT' && $event->isManager(Auth::user()->id) == true)))
+                            @if (Auth::user()->role === 'STAFF')
+                                <p class="text-green-500">Already Approved</p>
+                            @else
+                                <div class="flex items-center justify-center mt-4">
+                                    <a href="{{ route('edit-event', ['event' => $event]) }}"
+                                        class="inline-flex items-center px-8 py-2 text-lg font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        Show Attedees
+                                        <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            @endif
                         @endif
 
                     @elseif (Auth::user()->role === 'STUDENT')
@@ -169,9 +177,6 @@
                                     class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
-                                            ID
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
                                             Name
                                         </th>
                                         <th scope="col" class="px-6 py-3">
@@ -186,10 +191,6 @@
                                 @foreach ($attendees as $attendee)
                                     <tbody>
                                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                            <th scope="row"
-                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                {{ $attendee->id }}
-                                            </th>
                                             <td class="px-6 py-4">
                                                 {{ $attendee->name }}
                                             </td>

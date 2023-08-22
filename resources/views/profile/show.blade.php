@@ -20,12 +20,19 @@
                                 <span class="text-sm text-slate-400">Role</span>
                             </div>
                             <div class="p-3 text-center">
-                                <span class="text-xl font-bold block uppercase tracking-wide text-slate-700 dark:text-white">{{ $user->phone_number }}</span>
-                                <span class="text-sm text-slate-400">Phone Number</span>
+                                <a class="text-xl font-bold block uppercase tracking-wide text-slate-700 dark:text-white">{{ $user->phone_number }}</a>
+                                <span class="text-sm text-slate-400 ">Phone Number</span>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- contact link -->
+                <div class="p-3 text-center">
+                    <a href="{{ $user->website }}" target="_blank" class="text-xl font-bold block uppercase tracking-wide text-blue-500 dark:text-white">{{ $user->website }}</a>
+                    <span class="text-sm text-slate-400">Website</span>
+                </div>
+
                 <div class="text-center mt-6">
                     <h3 class="text-2xl text-slate-700 font-bold leading-normal mb-1 dark:text-white">{{ $user->username }}</h3>
                     <div class="text-lg mt-0 mb-2 text-slate-400 font-bold">

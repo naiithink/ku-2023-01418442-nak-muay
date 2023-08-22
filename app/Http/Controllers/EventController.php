@@ -106,8 +106,9 @@ class EventController extends Controller
 
     public function setStatus(Request $request)
     {
-        $event = Event::find($request->get('id'));
+        $event = Event::find($request->get('event_id'));
         $event->status = $request->get('status');
+        $event->disapproval_reasons = $request->get('disapproval_reasons');
         $event->save();
 
         return redirect()->route('show-event', ['event' => $event]);

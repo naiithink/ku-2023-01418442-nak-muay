@@ -7,7 +7,7 @@
             width="2000" height="800">
         <div class="w3-display-middle w3-margin-top w3-center">
             <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>KU</b></span> <span
-                    class="w3-hide-small w3-text-light-grey">Events</span></h1>
+                    class="w3-hidesmall w3-text-light-grey">Events</span></h1>
         </div>
     </header>
 
@@ -65,7 +65,7 @@
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $event->description }}</p>
                     <div class="flex mt-5 mb-3">
                         <h3 class="front-bold text-base text-red-500">Date:</h3>
-                        <p class="pl-2 text-sm text-red-500 mt-1">{{ $event->date }}</p>
+                        <p class="pl-2 text-sm text-red-500 mt-1">{{ DateTime::createFromFormat('Y-m-d H:i:s', '2024-08-28 17:00:00')->format('d F Y H:m:s') }}</p>
                     </div>
                     <a href="{{ route('show-event', ['event' => $event]) }}">
                         <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 mt-4 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">

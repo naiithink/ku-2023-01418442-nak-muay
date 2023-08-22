@@ -24,6 +24,13 @@
             <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
         </div>
 
+        <!-- Contact Link -->
+        <div class="mt-4">
+            <x-input-label for="website" :value="__('Website')" />
+            <x-text-input id="website" class="block mt-1 w-full py-2 border border-gray-200" type="url" name="website" :value="old('website')" required autocomplete="Website" />
+            <x-input-error :messages="$errors->get('website')" class="mt-2" />
+        </div>
+
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />

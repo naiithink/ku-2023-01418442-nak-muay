@@ -16,11 +16,11 @@
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg w3-padding-32">
             <h1 class=" pt-8 pb-6  text-3xl">{{ $event->event_name }}</h1>
 
-                <h1 class=" pt-8 pb-6"">Fund:</label>
-                <h1 class=" pt-8 pb-6  text-3xl">{{ $event->currency }}{{ $event->fund }}</h1>
+                <h1 class=" pt-6 pb-6"">Fund:</label>
+                <h1 class=" pt-2 pb-6  text-3xl">{{ $event->currency }}<span class="text-green-500">{{ $event->fund }}</span></h1>
 
-                <label class="">Date: </label>
-                <h1 class=" pt-8 pb-6  text-3xl text-red-500 "">{{ $event->date }}</h1>
+                <label class=" pt-6">Date: </label>
+                <h1 class=" pt-2 pb-6  text-3xl text-red-500 "">{{ DateTime::createFromFormat('Y-m-d H:i:s', '2024-08-28 17:00:00')->format('d F Y H:m:s') }}</h1>
 
                 <label class="">Attendee Capacity: </label>
                 <h1 class=" pt-8 pb-6  text-3xl">{{ $event->attendee_capacity }}</h1>
@@ -30,26 +30,30 @@
 
             @if ($event->status === 'PENDING')
 
-            <a href="{{ action('EventController@setStatus', ['id' => $event->id, 'status' => 'APPROVED']) }}" align="center">
-                <button type="button" class="w3-center text-white bg-green-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0  dark:hover:bg-green-700 dark:focus:ring-green-800">Approve</button>
-            </a>
 
-            <a href="{{ action('EventController@setStatus', ['id' => $event->id, 'status' => 'REJECTED']) }}" align="center">
-                <button type="button" class="w3-center text-white bg-red-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2 text-center mr-3 md:mr-0 dark:hover:bg-red-700 dark:focus:ring-red-800">Reject</button>
-            </a>
-{{--
-            <div class="flex -mx-3 justify-center font-mono">
-                <div class="w-full px-3 mb-5">
-                    <div class="justify-center font-mono ml-7">
+            <form action="{{ route('events.set-status', ['event_id' => $event->id, 'status' => 'APPROVED']) }}" method="POST">
+                @csrf
+                @method('PUT')
+                <button type="submit" class="w3-center text-white bg-green-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0  dark:hover:bg-green-700 dark:focus:ring-green-800">Approve</button>
+            </form>
 
-                        <input type="text" id='disapproval_reasons' name="disapproval_reasons" required autofocus
-                            autocomplete="off"
-                            style="width: 400px"
-                            class=" -ml-10 pl-5 mt-8 pr-3 py-3 text-black rounded-lg focus:border-indigo-500"
-                            placeholder="Reasons for rejection">
+            <form action="{{ route('events.set-status', ['event_id' => $event->id, 'status' => 'REJECTED']) }}" method="POST">
+                @csrf
+                @method('PUT')
+                <button type="submit" class="w3-center text-white bg-red-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2 text-center mr-3 md:mr-0 dark:hover:bg-red-700 dark:focus:ring-red-800">Reject</button>
+
+                <div class="flex -mx-3 justify-center font-mono">
+                    <div class="w-full px-3 mb-5">
+                        <div class="justify-center font-mono ml-7">
+                            <input type="text" id='disapproval_reasons' name="disapproval_reasons" required autofocus
+                                autocomplete="off"
+                                style="width: 400px"
+                                class=" -ml-10 pl-5 mt-8 pr-3 py-3 text-black rounded-lg focus:border-indigo-500"
+                                placeholder="Reasons for rejection">
+                        </div>
                     </div>
                 </div>
-            </div> --}}
+            </form>
 
             <h1 class="py-4">Members list</h1>
 
@@ -57,9 +61,7 @@
                 <table class=" text-sm text-left text-gray-500 dark:text-gray-400 border-2 border-teal-300" style="width: 1000px">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
-                            <th scope="col" class="px-6 py-3">
-                                ID
-                            </th>
+
                             <th scope="col" class="px-6 py-3">
                                 Name
                             </th>
@@ -83,9 +85,7 @@
                     @foreach ($attendees as $attendee)
                     <tbody>
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                {{ $attendee->id }}
-                            </th>
+
                             <td class="px-6 py-4">
                                 {{ $attendee->name }}
                             </td>
@@ -121,9 +121,7 @@
         <table class=" text-sm text-left text-gray-500 dark:text-gray-400 border-2 border-teal-300" style="width: 1000px">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                    <th scope="col" class="px-6 py-3">
-                        ID
-                    </th>
+
                     <th scope="col" class="px-6 py-3">
                         Name
                     </th>
@@ -145,9 +143,7 @@
             @foreach ($attendees as $attendee)
             <tbody>
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $attendee->id }}
-                    </th>
+
                     <td class="px-6 py-4">
                         {{ $attendee->name }}
                     </td>
