@@ -42,7 +42,7 @@
             <h1 class="py-4">Members list</h1>
 
             <div class="flex item-center justify-center">
-                <table class=" text-sm text-left text-gray-500 dark:text-gray-400 border-2 border-teal-300" style="width: 800px">
+                <table class=" text-sm text-left text-gray-500 dark:text-gray-400 border-2 border-teal-300" style="width: 1000px">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3">
@@ -54,17 +54,20 @@
                             <th scope="col" class="px-6 py-3">
                                 Role
                             </th>
+
+                            <th scope="col" class="px-6 py-3">
+                                Email
+                            </th>
                             <th scope="col" class="px-6 py-3">
                                 Profile
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Email
-                            </th><th scope="col" class="px-6 py-3">
                                 description
                             </th>
 
                         </tr>
                     </thead>
+
                     @foreach ($attendees as $attendee)
                     <tbody>
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -77,11 +80,12 @@
                             <td class="px-6 py-4">
                                 {{ $attendee->role }}
                             </td>
-                            <td class="px-6 py-4">
-                                <a href="{{ route('profile.show', ['user' => $attendee]) }}">See Profile</a>
-                            </td>
+
                             <td class="px-6 py-4">
                                 {{ $attendee->email }}
+                            </td>
+                            <td class="px-6 py-4 text-blue-500">
+                                <a href="{{ route('profile.show', ['user' => $attendee]) }}">See Profile</a>
                             </td>
                             <td class="px-6 py-4">
                                 {{ $event->attendees->find($attendee->id)->pivot->description }}
@@ -89,6 +93,7 @@
                         </tr>
                     </tbody>
                     @endforeach
+
                 </table>
             </div>
 
@@ -101,7 +106,7 @@
     <h1 class="py-4">Members list</h1>
 
     <div class="flex item-center justify-center">
-        <table class=" text-sm text-left text-gray-500 dark:text-gray-400 border-2 border-teal-300" style="width: 800px">
+        <table class=" text-sm text-left text-gray-500 dark:text-gray-400 border-2 border-teal-300" style="width: 1000px">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
@@ -114,11 +119,12 @@
                         Role
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Email
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         Profile
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Email
-                    </th><th scope="col" class="px-6 py-3">
                         description
                     </th>
 
@@ -136,11 +142,12 @@
                     <td class="px-6 py-4">
                         {{ $attendee->role }}
                     </td>
-                    <td class="px-6 py-4">
-                        <a href="{{ route('profile.show', ['user' => $attendee]) }}">See Profile</a>
-                    </td>
+
                     <td class="px-6 py-4">
                         {{ $attendee->email }}
+                    </td>
+                    <td class="px-6 py-4 text-blue-500">
+                        <a  href="{{ route('profile.show', ['user' => $attendee]) }}">See Profile</a>
                     </td>
                     <td class="px-6 py-4">
                         {{ $event->attendees->find($attendee->id)->pivot->description }}
