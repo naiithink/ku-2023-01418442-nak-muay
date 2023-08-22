@@ -16,6 +16,18 @@
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg w3-padding-32">
             <h1 class=" pt-8 pb-6  text-3xl">{{ $event->event_name }}</h1>
 
+                <h1 class=" pt-8 pb-6"">Fund:</label>
+                <h1 class=" pt-8 pb-6  text-3xl">{{ $event->currency }}{{ $event->fund }}</h1>
+
+                <label class="">Date: </label>
+                <h1 class=" pt-8 pb-6  text-3xl text-red-500 "">{{ $event->date }}</h1>
+
+                <label class="">Attendee Capacity: </label>
+                <h1 class=" pt-8 pb-6  text-3xl">{{ $event->attendee_capacity }}</h1>
+
+
+
+
             @if ($event->status === 'PENDING')
 
             <a href="{{ action('EventController@setStatus', ['id' => $event->id, 'status' => 'APPROVED']) }}" align="center">
