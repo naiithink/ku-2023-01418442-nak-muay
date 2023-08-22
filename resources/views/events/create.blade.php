@@ -13,7 +13,7 @@
 
                     <div class="w-full md:w-1/2 py-8 px-5 md:px-10 ">
                         <div class="text-center mb-8">
-                            <h1 class="font-bold text-3xl text-gray-900">Create Your Event</h1>
+                            <h1 class="font-bold text-3xl text-gray-900">Create an Event</h1>
                         </div>
 
 
@@ -106,7 +106,7 @@
 
                                 <!-- capacity -->
                                 <div class="w-full px-3 mb-5">
-                                    <label for="number" class="text-xs font-semibold px-1">Capacity</label>
+                                    <label for="number" class="text-xs font-semibold px-1">Expected Attendees</label>
                                     <div class="flex">
                                         <div
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
