@@ -64,7 +64,7 @@
                                             <div
                                                 class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                                 <i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
-                                            <input type="text" id="fund" name="fund" required autofocus
+                                            <input type="number" id="fund" name="fund" required autofocus
                                                 autocomplete="off"
                                                 class="w-50 -ml-10 pl-5pr-3 py-3 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                                                 placeholder="Fund">
