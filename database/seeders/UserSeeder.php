@@ -81,7 +81,7 @@ class UserSeeder extends Seeder
         $user->username = "Ton";
         $user->password = "password";
         $user->email = "nawapon.l@ku.th";
-        $user->phone_number = "911";
+        $user->phone_number = "0987654321";
         $user->link_video = "08";
         $user->save();
 
@@ -93,7 +93,7 @@ class UserSeeder extends Seeder
         $user->username = "Au";
         $user->password = "password";
         $user->email = "chanawut.w@ku.th";
-        $user->phone_number = "555555";
+        $user->phone_number = "1234567890";
         $user->link_video = "09";
         $user->save();
 
