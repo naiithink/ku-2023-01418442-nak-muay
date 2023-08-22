@@ -58,12 +58,14 @@
                 </div>
 
 
-                <div class="text-center mt-6">
+                <div class="text-center mt-4">
                     <h3 class="text-2xl text-slate-700 font-bold leading-normal mb-1 dark:text-white">
                         {{ $event->event_name }}</h3>
                 </div>
+                <div class="text-center decoration-solid">
+                    <a href="{{ route('profile.show', ['user' => $event->managers->first()]) }}" class="block px-2 mt-7 -mb-3 text-sm  text-blue-500" ">Contact Manager</a>
 
-                    <a href="{{ route('profile.show', ['user' => $event->managers->first()]) }}" class="block px-4 py-2 text-sm w-full text-center text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Contact Manager</a>
+                </div>
 
                 <div class="mt-6 py-6 border-t border-slate-200 dark:border-teal-200 text-center">
                     <div class="flex flex-wrap justify-center">
@@ -76,6 +78,9 @@
                     {{-- edit --}}
                     @if (Auth::user() === null)
                         <!-- edit -->
+                    @elseif (date('Y-m-d H:m:s') > $event->date)
+
+                        <p class="text-red-500 text-lg">Passed Event </p>
                     @elseif (Auth::user()->role === 'STAFF' || (Auth::user()->role === 'STUDENT' && $event->isManager(Auth::user()->id) == true))
                         @if ($event->status === "PENDING" && Auth::user()->role === 'STAFF')
                         <div class="flex items-center justify-center mt-4">
